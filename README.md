@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# 🚀 NutriCalc: Calculadora Nutricional
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Uma aplicação web de página única (SPA) moderna, desenvolvida para ajudar usuários a entenderem suas necessidades nutricionais e de bem-estar. O projeto calcula desde a Taxa Metabólica Basal (TMB) até a recomendação de macronutrientes, IMC e horas de sono, tudo em uma interface limpa e responsiva.
 
-## Available Scripts
+**Acesse a demonstração ao vivo:** [https://SEU-LINK-AQUI.vercel.app/](https://SEU-LINK-AQUI.vercel.app/)
 
-In the project directory, you can run:
+![Badge de Deploy da Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📸 Screenshot
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+(Adicione aqui um screenshot da sua aplicação!)
 
-### `npm test`
+![NutriCalc Screenshot](https://[URL-DA-SUA-IMAGEM-AQUI]/screenshot.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## ✨ Funcionalidades Principais
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+O NutriCalc oferece um painel de resultados completo com base em seus dados pessoais:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* **Metas Calóricas:**
+    * Taxa Metabólica Basal (TMB)
+    * Gasto Energético Total (GET) para manutenção de peso.
+    * Meta de calorias para Déficit (perda de peso).
+    * Meta de calorias para Superávit (ganho de peso).
+* **Métricas de Saúde:**
+    * Cálculo de **IMC** (Índice de Massa Corporal) com classificação (Abaixo do peso, Normal, etc.).
+    * Recomendação de **horas de sono** diárias com base na idade.
+* **Métricas Diárias:**
+    * Faixa de ingestão de **Proteínas** (g).
+    * Faixa de ingestão de **Carboidratos** (g).
+    * Faixa de ingestão de **Gorduras** (g).
+    * Meta de **Hidratação** (ml).
+    * Dose de manutenção de **Creatina** (g).
+* **Educacional:**
+    * Seções informativas que explicam a importância de cada métrica (TMB vs GET, IMC, Macronutrientes, Sono, etc.).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🛠️ Tecnologias Utilizadas
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Este projeto foi construído com um stack de frontend moderno, focado em performance e na melhor experiência de desenvolvimento:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* **[React.js](https://reactjs.org/):** Biblioteca principal para a construção da interface de usuário.
+* **[Vite](https://vitejs.dev/):** Ferramenta de build (bundler) de nova geração, proporcionando um servidor de desenvolvimento HMR (Hot Module Replacement) extremamente rápido.
+* **[Tailwind CSS](https://tailwindcss.com/):** Framework CSS utility-first para estilização rápida e responsiva.
+* **[Font Awesome](https://fontawesome.com/):** Para os ícones utilizados na interface.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🚀 Como Executar o Projeto Localmente
 
-## Learn More
+Siga os passos abaixo para rodar o NutriCalc em sua máquina local.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Pré-requisitos:**
+* [Node.js](https://nodejs.org/en/) (versão 18 ou superior recomendada)
+* [Git](https://git-scm.com/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Passos:**
 
-### Code Splitting
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/](https://github.com/)[SEU-USUARIO]/[SEU-REPOSITORIO].git
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2.  **Entre na pasta do projeto:**
+    ```bash
+    cd [NOME-DO-SEU-REPOSITORIO]
+    ```
 
-### Analyzing the Bundle Size
+3.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+    *(Ou `yarn install` se você utilizar o Yarn)*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
+    *(Ou `yarn dev`)*
 
-### Making a Progressive Web App
+5.  **Abra em seu navegador:**
+    Acesse [`http://localhost:5173`](http://localhost:5173) (ou a porta indicada pelo Vite no seu terminal).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 📦 Deploy na Vercel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Este projeto está pronto para o deploy na Vercel com zero configuração.
 
-### Deployment
+1.  **Envie seu projeto para o GitHub.**
+2.  **Crie uma conta** na [Vercel](https://vercel.com) e conecte seu GitHub.
+3.  **Importe o repositório** do seu projeto na Vercel.
+4.  A Vercel detectará automaticamente que é um projeto **Vite**. As configurações padrão já estarão corretas:
+    * **Build Command:** `npm run build` (ou `vite build`)
+    * **Output Directory:** `dist`
+5.  Clique em **"Deploy"**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Pronto! Seu site estará no ar e será atualizado automaticamente a cada `git push` na sua branch principal.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 👨‍💻 Autor
+
+Desenvolvido por **Gabriel Kaicon Batista Hilário**
+
+* **GitHub:** [@gKaicon](https://github.com/gKaicon)
+* **LinkedIn:** [gkaicon21](https://linkedin.com/in/gkaicon21)
