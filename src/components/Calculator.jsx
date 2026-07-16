@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 function getHorasSono(idade) {
@@ -15,6 +14,17 @@ function getIMCClassification(imc) {
   if (imc < 34.9) return "Obesidade Grau I";
   if (imc < 39.9) return "Obesidade Grau II";
   return "Obesidade Grau III";
+}
+
+// Nova função para o Peso Ideal (Fórmula de Devine)
+function getPesoIdeal(genero, alturaCm) {
+  if (alturaCm < 152.4) return null; // A fórmula é mais precisa para alturas acima de 1,52m
+  
+  if (genero === 'masculino') {
+    return 50 + 0.91 * (alturaCm - 152.4);
+  } else {
+    return 45.5 + 0.91 * (alturaCm - 152.4);
+  }
 }
 
 export default function Calculator() {
@@ -61,12 +71,17 @@ export default function Calculator() {
     }
     const get = tmb * atividadeNum;
 
-
     const imcNum = pesoNum / ((alturaNum / 100) ** 2);
     const imcValor = imcNum.toFixed(2);
     const imcClass = getIMCClassification(imcNum);
     const horasSono = getHorasSono(idadeNum);
     
+    // Calcula o peso ideal
+    const pesoIdealCalculado = getPesoIdeal(genero, alturaNum);
+    const pesoIdealStr = pesoIdealCalculado 
+      ? `${pesoIdealCalculado.toFixed(1)} kg` 
+      : "N/A (< 1.52m)";
+
     setResults({
       tmb: tmb.toFixed(0),
       manterPeso: get.toFixed(0),
@@ -74,6 +89,7 @@ export default function Calculator() {
       ganharPeso: (get + 500).toFixed(0),
       
       imc: `${imcValor} (${imcClass})`, 
+      pesoIdeal: pesoIdealStr, // Nova propriedade no estado
       sono: horasSono,
       agua: `${(pesoNum * 35).toFixed(0)} ml - ${(pesoNum * 40).toFixed(0)} ml`,
       proteina: `${(pesoNum * 1.6).toFixed(1)} g - ${(pesoNum * 2.2).toFixed(1)} g`,
@@ -135,6 +151,8 @@ export default function Calculator() {
                 <h3 className="flex items-center gap-3"><i className="fas fa-utensils text-[#0a84ff]"></i> Métricas Diárias</h3>
                 
                 <p className="info-item"><span>📊 IMC (Peso/Altura²)</span> <strong>{results.imc}</strong></p>
+                {/* Nova linha exibindo o Peso Ideal */}
+                <p className="info-item"><span>⚖️ Peso Ideal Estimado</span> <strong>{results.pesoIdeal}</strong></p>
                 <p className="info-item"><span>🌙 Sono Recomendado</span> <strong>{results.sono}</strong></p>
                 
                 <p className="info-item"><span>💧 Água</span> <strong>{results.agua}</strong></p>
@@ -155,7 +173,7 @@ export default function Calculator() {
         .info-item { margin-bottom: 15px; font-size: 1.1em; display: flex; align-items: center; justify-content: space-between; }
         .info-item span:first-child { font-weight: 600; }
         .info-item strong { color: #0a84ff; font-weight: 700; }
-        .info-item strong.text-gray-700 { color: #4a5568; } /* Estilo para o TMB */
+        .info-item strong.text-gray-700 { color: #4a5568; }
         .disclaimer { font-size: 0.9em; color: #718096; margin-top: 15px; text-align: center; }
       `}</style>
     </section>
