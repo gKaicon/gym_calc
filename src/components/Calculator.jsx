@@ -16,9 +16,8 @@ function getIMCClassification(imc) {
   return "Obesidade Grau III";
 }
 
-// Nova função para o Peso Ideal (Fórmula de Devine)
 function getPesoIdeal(genero, alturaCm) {
-  if (alturaCm < 152.4) return null; // A fórmula é mais precisa para alturas acima de 1,52m
+  if (alturaCm < 152.4) return null; 
   
   if (genero === 'masculino') {
     return 50 + 0.91 * (alturaCm - 152.4);
@@ -76,7 +75,6 @@ export default function Calculator() {
     const imcClass = getIMCClassification(imcNum);
     const horasSono = getHorasSono(idadeNum);
     
-    // Calcula o peso ideal
     const pesoIdealCalculado = getPesoIdeal(genero, alturaNum);
     const pesoIdealStr = pesoIdealCalculado 
       ? `${pesoIdealCalculado.toFixed(1)} kg` 
@@ -89,7 +87,7 @@ export default function Calculator() {
       ganharPeso: (get + 500).toFixed(0),
       
       imc: `${imcValor} (${imcClass})`, 
-      pesoIdeal: pesoIdealStr, // Nova propriedade no estado
+      pesoIdeal: pesoIdealStr,
       sono: horasSono,
       agua: `${(pesoNum * 35).toFixed(0)} ml - ${(pesoNum * 40).toFixed(0)} ml`,
       proteina: `${(pesoNum * 1.6).toFixed(1)} g - ${(pesoNum * 2.2).toFixed(1)} g`,
@@ -151,7 +149,6 @@ export default function Calculator() {
                 <h3 className="flex items-center gap-3"><i className="fas fa-utensils text-[#0a84ff]"></i> Métricas Diárias</h3>
                 
                 <p className="info-item"><span>📊 IMC (Peso/Altura²)</span> <strong>{results.imc}</strong></p>
-                {/* Nova linha exibindo o Peso Ideal */}
                 <p className="info-item"><span>⚖️ Peso Ideal Estimado</span> <strong>{results.pesoIdeal}</strong></p>
                 <p className="info-item"><span>🌙 Sono Recomendado</span> <strong>{results.sono}</strong></p>
                 
@@ -161,6 +158,11 @@ export default function Calculator() {
                 <p className="info-item"><span>🥑 Gordura</span> <strong>{results.gordura}</strong></p>
                 <p className="info-item"><span>💪 Creatina</span> <strong>{results.creatina} g</strong></p>
               </div>
+
+              {/* Novo alerta inserido aqui */}
+              <p className="disclaimer mt-4 bg-blue-50 p-3 rounded-lg text-sm text-blue-800 flex items-center justify-center gap-2 border border-blue-100">
+                <i className="fas fa-info-circle"></i> O IMC e o peso ideal não levam em consideração se sua massa é magra ou gordura.
+              </p>
             </div>
           )}
         </div>
@@ -174,7 +176,7 @@ export default function Calculator() {
         .info-item span:first-child { font-weight: 600; }
         .info-item strong { color: #0a84ff; font-weight: 700; }
         .info-item strong.text-gray-700 { color: #4a5568; }
-        .disclaimer { font-size: 0.9em; color: #718096; margin-top: 15px; text-align: center; }
+        .disclaimer { font-size: 0.9em; color: #718096; text-align: center; }
       `}</style>
     </section>
   );
